@@ -1,7 +1,6 @@
 # compiled output
 /dist
 /node_modules
-package-lock.json
 .eslintcache
 
 # environments
@@ -15,7 +14,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-yarn.lock
 
 # OS
 .DS_Store
