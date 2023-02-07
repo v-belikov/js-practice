@@ -200,7 +200,10 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-    throw new Error('Not implemented');
+    let top = '┌' + '─'.repeat(width-2) + '┐\n';
+    let mid = '│' + ' '.repeat(width-2) + '│\n'
+    let bot = '└' + '─'.repeat(width-2) + '┘\n'
+    return top+mid.repeat(height-2)+bot
 }
 
 
@@ -220,7 +223,9 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-    throw new Error('Not implemented');
+    const originalAlpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    const cipher = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+    return str.replace(/[a-z]/gi, letter => cipher[originalAlpha.indexOf(letter)])
 }
 
 /**
