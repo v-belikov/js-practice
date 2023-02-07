@@ -159,11 +159,7 @@ function repeatString(value, count) {
  */
 function removeFirstOccurrences(str, value) {
   try {
-    let result = str.split(' ').filter((item) => {
-      return item !== value;
-    });
-    result = result.join(' ');
-    return result;
+    return str.replace(value, '');
   } catch {
     throw new Error('Not implemented');
   }
@@ -248,7 +244,20 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-  throw new Error('Not implemented');
+  try {
+    let lengthString = width - 2;
+    let heighthString = height - 2;
+
+    let firstString = '┌' + '─'.repeat(lengthString) + '┐\n';
+    let middleString = ('│' + ' '.repeat(lengthString) + '│\n').repeat(heighthString);
+    let endString = '└' + '─'.repeat(lengthString) + '┘\n';
+
+    let result = `${firstString}${middleString}${endString}`;
+
+    return result;
+  } catch {
+    throw new Error('Not implemented');
+  }
 }
 
 /**
@@ -267,7 +276,16 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  throw new Error('Not implemented');
+  const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  try {
+    let LetterIndex = (x) => input.indexOf(x);
+    let translate = (x) => (LetterIndex(x) > -1 ? output[LetterIndex(x)] : x);
+    let result = str.split('').map(translate).join('');
+    return result;
+  } catch {
+    throw new Error('Not implemented');
+  }
 }
 
 /**
@@ -284,7 +302,11 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  throw new Error('Not implemented');
+  try {
+    return typeof value === 'string' ? true : value instanceof String ? true : false;
+  } catch {
+    throw new Error('Not implemented');
+  }
 }
 
 /**
