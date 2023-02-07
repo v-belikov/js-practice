@@ -9,12 +9,14 @@
  ********************************************************************************************/
 
 
+const {toNumber} = require('./02-numbers-tasks');
+
 /**
  * Parses a rfc2822 string date representation into date value
  * For rfc2822 date specification refer to : http://tools.ietf.org/html/rfc2822#page-14
  *
  * @param {string} value
- * @return {date}
+ * @return {Date}
  *
  * @example:
  *    'December 17, 1995 03:24:00'    => Date()
@@ -22,7 +24,7 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 function parseDataFromRfc2822(value) {
-   throw new Error('Not implemented');
+    return Date.parse(value);
 }
 
 /**
@@ -30,14 +32,14 @@ function parseDataFromRfc2822(value) {
  * For ISO 8601 date specification refer to : https://en.wikipedia.org/wiki/ISO_8601
  *
  * @param {string} value
- * @return {date}
+ * @return {Date}
  *
  * @example :
  *    '2016-01-19T16:07:37+00:00'    => Date()
  *    '2016-01-19T08:07:37Z' => Date()
  */
 function parseDataFromIso8601(value) {
-   throw new Error('Not implemented');
+   return Date.parse(value);
 }
 
 
@@ -45,8 +47,8 @@ function parseDataFromIso8601(value) {
  * Returns true if specified date is leap year and false otherwise
  * Please find algorithm here: https://en.wikipedia.org/wiki/Leap_year#Algorithm
  *
- * @param {date} date
- * @return {bool}
+ * @param {Date} date
+ * @return {boolean}
  *
  * @example :
  *    Date(1900,1,1)    => false
@@ -56,7 +58,10 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-   throw new Error('Not implemented');
+    const checkDate = new Date(date);
+    checkDate.setMonth(1, 29);
+
+    return checkDate.getDate() === 29;
 }
 
 
@@ -76,6 +81,20 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
+    const format = (number, length = 2) =>  `${number}`.padStart(length, '0');
+
+    // Convert date to parts
+    let diff = endDate - startDate;
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    diff -= hours * (1000 * 60 * 60);
+    const minutes = Math.floor(diff / (1000 * 60));
+    diff -= minutes * (1000 * 60);
+    const seconds = Math.floor(diff / (1000));
+    const milliseconds = diff - seconds * 1000;
+
+    return `${format(hours)}:${format(minutes)}:${format(seconds)}.${format(milliseconds,3)}`;
+
+
    throw new Error('Not implemented');
 }
 
@@ -83,8 +102,8 @@ function timeSpanToString(startDate, endDate) {
 /**
  * Returns the angle (in radians) between the hands of an analog clock for the specified Greenwich time.
  * If you have problem with solution please read: https://en.wikipedia.org/wiki/Clock_angle_problem
- * 
- * @param {date} date
+ *
+ * @param {Date} date
  * @return {number}
  *
  * @example:
@@ -94,7 +113,15 @@ function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 function angleBetweenClockHands(date) {
-    throw new Error('Not implemented');
+    const hours = date.getUTCHours() % 12;
+    const minutes = date.getUTCMinutes();
+    const toRadians = (degrees) => degrees * (Math.PI / 180)
+    const hoursAngle = 0.5 * (60 * hours + minutes);
+    const minutesAngle = 6 * minutes;
+
+    const angle = Math.abs(hoursAngle - minutesAngle);
+
+    return toRadians(Math.min(360 - angle, angle));
 }
 
 

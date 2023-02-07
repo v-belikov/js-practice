@@ -12,10 +12,10 @@ describe('02-numbers-tasks', function() {
         assert.equal(tasks.getRectangleArea(5, 5), 25);
     });
 
-    it.optional('getCicleCircumference should return a circumference of cicle', function() {
-        assert.equal(tasks.getCicleCircumference(5), 31.41592653589793);
-        assert.equal(tasks.getCicleCircumference(3.14), 19.729201864543903);
-        assert.equal(tasks.getCicleCircumference(0), 0);
+    it.optional('getCircleCircumference should return a circumference of cicle', function() {
+        assert.equal(tasks.getCircleCircumference(5), 31.41592653589793);
+        assert.equal(tasks.getCircleCircumference(3.14), 19.729201864543903);
+        assert.equal(tasks.getCircleCircumference(0), 0);
     });
 
     it.optional('getAverage should return an average of two numbers', function() {
@@ -37,7 +37,7 @@ describe('02-numbers-tasks', function() {
         assert.equal(tasks.getLinearEquationRoot(1, 8), -8);
         assert.equal(tasks.getLinearEquationRoot(5, 0), 0);
     });
-    
+
     it.optional('getAngleBetweenVectors should return a angle (in radians) between two linear vectors', function() {
         assert.equal(tasks.getAngleBetweenVectors(1, 0, 0, 1), Math.PI/2);
         assert.equal(tasks.getAngleBetweenVectors(0, 1, 0, -1), Math.PI);
@@ -58,10 +58,10 @@ describe('02-numbers-tasks', function() {
         assert.equal(tasks.parseNumberFromString('-525.5'), -525.5);
     });
 
-    it.optional('getParallelipidedDiagonal should return a diagonal length of the rectagular parallepiped', function() {
-        assert.equal(tasks.getParallelipidedDiagonal(1,1,1), Math.sqrt(3));
-        assert.equal(tasks.getParallelipidedDiagonal(3,3,3), Math.sqrt(27));
-        //assert.equal(tasks.getParallelipidedDiagonal(1,2,3), Math.sqrt(14));
+    it.optional('getParallelepipedDiagonal should return a diagonal length of the rectagular parallepiped', function() {
+        assert.equal(tasks.getParallelepipedDiagonal(1,1,1), Math.sqrt(3));
+        assert.equal(tasks.getParallelepipedDiagonal(3,3,3), Math.sqrt(27));
+        assert.equal(tasks.getParallelepipedDiagonal(1,2,3), Math.sqrt(14));
     });
 
     it.optional('roundToPowerOfTen should return an number rounded to specified power of 10', function() {
@@ -69,7 +69,7 @@ describe('02-numbers-tasks', function() {
         assert.equal(tasks.roundToPowerOfTen(1234,1), 1230);
         assert.equal(tasks.roundToPowerOfTen(1234,2), 1200);
         assert.equal(tasks.roundToPowerOfTen(1234,3), 1000);
-        
+
         assert.equal(tasks.roundToPowerOfTen(9678,0), 9678);
         assert.equal(tasks.roundToPowerOfTen(9678,1), 9680);
         assert.equal(tasks.roundToPowerOfTen(9678,2), 9700);
