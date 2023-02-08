@@ -45,7 +45,18 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-  throw new Error('Not implemented');
+  try {
+    const result = [];
+    let i = 1;
+    let res = i;
+    for (i; i <= len; i++) {
+      result.push(res);
+      res += 2;
+    }
+    return result;
+  } catch {
+    throw new Error('Not implemented');
+  }
 }
 
 /**
@@ -60,7 +71,11 @@ function generateOdds(len) {
  *    [] => []
  */
 function doubleArray(arr) {
-  throw new Error('Not implemented');
+  try {
+    return [...arr, ...arr];
+  } catch {
+    throw new Error('Not implemented');
+  }
 }
 
 /**
@@ -115,7 +130,11 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  throw new Error('Not implemented');
+  try {
+    return arr.filter((item) => item);
+  } catch {
+    throw new Error('Not implemented');
+  }
 }
 
 /**
@@ -391,7 +410,17 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-  throw new Error('Not implemented');
+  try {
+    let counter = 0;
+    arr.map((it) => {
+      if (it === item) {
+        counter++;
+      }
+    });
+    return counter;
+  } catch {
+    throw new Error('Not implemented');
+  }
 }
 
 /**
@@ -406,7 +435,15 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-  throw new Error('Not implemented');
+  try {
+    let result = '';
+    arr.map((item) => {
+      result += `${item},`;
+    });
+    return result.slice(0, -1);
+  } catch {
+    throw new Error('Not implemented');
+  }
 }
 
 /**

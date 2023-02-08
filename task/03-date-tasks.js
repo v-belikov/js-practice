@@ -64,9 +64,7 @@ function parseDataFromIso8601(value) {
 function isLeapYear(date) {
   try {
     let year = date.getUTCFullYear();
-    if (year % 4 === 0) {
-      return year;
-    }
+    return (year % 4 === 0 && year % 100 != 0) || year % 400 === 0;
   } catch {
     throw new Error('Not implemented');
   }
@@ -88,7 +86,14 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-  throw new Error('Not implemented');
+  try {
+    let date1 = new Date(startDate);
+    let date2 = new Date(endDate);
+    let timeDiff = Math.abs(date2.getTime() - date1.getTime());
+    return Math.ceil(timeDiff / (1000 * 3600 * 24));
+  } catch {
+    throw new Error('Not implemented');
+  }
 }
 
 /**
