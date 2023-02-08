@@ -334,7 +334,11 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  throw new Error('Not implemented');
+  try {
+    return value;
+  } catch {
+    throw new Error('Not implemented');
+  }
 }
 
 module.exports = {
