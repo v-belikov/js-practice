@@ -23,13 +23,11 @@
  *    console.log(r.getArea());   // => 200
  */
 function Rectangle(width, height) {
-    const rect = new Object()
-    rect.height=height;
-    rect.width=width;
-    rect.getArea = function () {
-        return height*width
-    }
-    return rect
+    this.width = width;
+    this.height = height;
+    this.__proto__.getArea = function () {
+        return width * height;
+    };
 }
 
 
@@ -60,10 +58,9 @@ function getJSON(obj) {
  *
  */
 function fromJSON(proto, json) {
-    const obj = JSON.parse(json);
-    const values = Object.values(obj);
-
-    return new proto.constructor(...values);
+    const obj = JSON.parse(json)
+    obj.__proto__ = proto
+    return obj
 }
 
 
@@ -117,31 +114,31 @@ function fromJSON(proto, json) {
 
 const cssSelectorBuilder = {
 
-    element: function(value) {
+    element: function (value) {
         throw new Error('Not implemented');
     },
 
-    id: function(value) {
+    id: function (value) {
         throw new Error('Not implemented');
     },
 
-    class: function(value) {
+    class: function (value) {
         throw new Error('Not implemented');
     },
 
-    attr: function(value) {
+    attr: function (value) {
         throw new Error('Not implemented');
     },
 
-    pseudoClass: function(value) {
+    pseudoClass: function (value) {
         throw new Error('Not implemented');
     },
 
-    pseudoElement: function(value) {
+    pseudoElement: function (value) {
         throw new Error('Not implemented');
     },
 
-    combine: function(selector1, combinator, selector2) {
+    combine: function (selector1, combinator, selector2) {
         throw new Error('Not implemented');
     },
 };
