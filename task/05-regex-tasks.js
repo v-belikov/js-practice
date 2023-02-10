@@ -30,11 +30,7 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-  try {
-    return new RegExp(/\{[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}\}/i);
-  } catch {
-    throw new Error('Not implemented');
-  }
+  return new RegExp(/\{[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}\}/i);
 }
 
 /**
@@ -55,11 +51,7 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
-  try {
-    return new RegExp(/^(pi|s|r).+/);
-  } catch {
-    throw new Error('Not implemented');
-  }
+  return new RegExp(/^(pi|s|r).+/);
 }
 
 /**
@@ -77,13 +69,9 @@ function getRegexForPitSpot() {
  * @return {RegExp}
  */
 function getRegexForIPv4() {
-  try {
-    return new RegExp(
-      /^(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[0-9]{2}|[0-9])(\.(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[0-9]{2}|[0-9])){3}$/
-    );
-  } catch {
-    throw new Error('Not implemented');
-  }
+  return new RegExp(
+    /^(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[0-9]{2}|[0-9])(\.(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[0-9]{2}|[0-9])){3}$/
+  );
 }
 
 /**
