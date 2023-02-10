@@ -8,7 +8,6 @@
  *                                                                                          *
  ********************************************************************************************/
 
-
 /**
  * Returns the lines sequence of "99 Bottles of Beer" song:
  *
@@ -33,9 +32,21 @@
  *
  */
 function* get99BottlesOfBeer() {
+  try {
+    for (let i = 99; i > 2; ) {
+      yield `${i} bottles of beer on the wall, ${i} bottles of beer.`;
+      yield `Take one down and pass it around, ${--i} bottles of beer on the wall.`;
+    }
+    yield `2 bottles of beer on the wall, 2 bottles of beer.`;
+    yield `Take one down and pass it around, 1 bottle of beer on the wall.`;
+    yield '1 bottle of beer on the wall, 1 bottle of beer.';
+    yield 'Take one down and pass it around, no more bottles of beer on the wall.';
+    yield 'No more bottles of beer on the wall, no more bottles of beer.';
+    yield 'Go to the store and buy some more, 99 bottles of beer on the wall.';
+  } catch {
     throw new Error('Not implemented');
+  }
 }
-
 
 /**
  * Returns the Fibonacci sequence:
@@ -47,9 +58,8 @@ function* get99BottlesOfBeer() {
  *
  */
 function* getFibonacciSequence() {
-    throw new Error('Not implemented');
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Traverses a tree using the depth-first strategy
@@ -82,9 +92,8 @@ function* getFibonacciSequence() {
  *
  */
 function* depthTraversalTree(root) {
-    throw new Error('Not implemented');
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Traverses a tree using the breadth-first strategy
@@ -108,9 +117,8 @@ function* depthTraversalTree(root) {
  *
  */
 function* breadthTraversalTree(root) {
-    throw new Error('Not implemented');
+  throw new Error('Not implemented');
 }
-
 
 /**
  * Merges two yield-style sorted sequences into the one sorted sequence.
@@ -126,14 +134,14 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-    throw new Error('Not implemented');
+  throw new Error('Not implemented');
 }
 
 /**
  * Resolve Promises and take values step by step.
- * 
+ *
  * @params {Iterable.<Promise>} generator
- * @return {Promise} Promise with value returned via return 
+ * @return {Promise} Promise with value returned via return
  *
  * @example
  *   async((function*() {
@@ -145,15 +153,14 @@ function* mergeSortedSequences(source1, source2) {
  *   Most popular implementation of the logic in npm https://www.npmjs.com/package/co
  */
 function async(generator) {
-    throw new Error('Not implemented');
+  throw new Error('Not implemented');
 }
 
-
 module.exports = {
-    get99BottlesOfBeer: get99BottlesOfBeer,
-    getFibonacciSequence: getFibonacciSequence,
-    depthTraversalTree: depthTraversalTree,
-    breadthTraversalTree: breadthTraversalTree,
-    mergeSortedSequences: mergeSortedSequences,
-    async               : async
+  get99BottlesOfBeer: get99BottlesOfBeer,
+  getFibonacciSequence: getFibonacciSequence,
+  depthTraversalTree: depthTraversalTree,
+  breadthTraversalTree: breadthTraversalTree,
+  mergeSortedSequences: mergeSortedSequences,
+  async: async,
 };
