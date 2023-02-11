@@ -90,7 +90,6 @@ function getRegexForIPv4() {
  *                                   '0S4-H1-HACK'
  * @return {RegExp}
  */
-
 function getRegexForSSN() {
    throw new Error('Not implemented');
 }

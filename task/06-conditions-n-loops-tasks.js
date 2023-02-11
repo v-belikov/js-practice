@@ -30,7 +30,15 @@
  *
  */
 function getFizzBuzz(num) {
-    throw new Error('Not implemented');
+    if(num % 3 === 0 && num % 5 === 0){
+        return 'FizzBuzz';
+    }else if(num % 5 === 0){
+        return 'Buzz';
+    } else if(num % 3 === 0){
+        return 'Fizz';
+    } else {
+        return num;
+    }
 }
 
 
@@ -46,9 +54,15 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-    throw new Error('Not implemented');
+    var res = n;
+    if (n === 0 || n === 1) 
+      return 1; 
+    while (n > 1) { 
+        n--;
+        res *= n;
+    }
+    return res;
 }
-
 
 /**
  * Returns the sum of integer numbers between n1 and n2 (inclusive).
@@ -63,7 +77,12 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    let i = n1;
+    while(i < n2){
+        i++;
+        n1 += i;
+    }
+    return n1;
 }
 
 
@@ -82,7 +101,14 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a,b,c) {
-    throw new Error('Not implemented');
+    if (a <= 0 || b <= 0 || c <= 0){
+        return false;
+    }
+    if (a + b > c && a + c > b && c + b > a){
+        return true;
+    } else{
+        return false;
+    }
 }
 
 

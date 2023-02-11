@@ -22,23 +22,20 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-    throw new Error('Not implemented');
+    return width*height;
 }
-
 
 /**
  * Returns a circumference of circle given by radius.
- *
  * @param {number} radius
  * @return {number}
- *
  * @example:
  *   5    => 31.41592653589793
  *   3.14 => 19.729201864543903
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-    throw new Error('Not implemented');
+    return 2 * Math.PI * radius;
 }
 
 /**
@@ -54,7 +51,7 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-    throw new Error('Not implemented');
+    return (value1/2+value2/2);
 }
 
 /**
