@@ -251,7 +251,16 @@ function reverseInteger(num) {
  *   4916123456789012 => false
  */
 function isCreditCardNumber(ccn) {
-    throw new Error('Not implemented');
+    let sum = 0;
+    let arrCnn = String(ccn).split('');
+    for(let i = arrCnn.length-2; i >= 0; i-=2){
+        arrCnn[i] = arrCnn[i] * 2;
+        if(arrCnn[i] > 9){
+            arrCnn[i] = arrCnn[i] - 9;
+        }
+    }
+    sum = (arrCnn.reduce((prev, curr)=> +prev+(+curr)))
+    return (sum % 10 === 0);
 }
 
 

@@ -31,7 +31,7 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
-   throw new Error('Not implemented');
+   return /^\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}}$/i;
 }
 
 
@@ -53,7 +53,7 @@ function getRegexForGuid() {
  *
  */
 function getRegexForPitSpot() {
-   throw new Error('Not implemented');
+   return /[iswl]/;
 }
 
 
@@ -72,9 +72,9 @@ function getRegexForPitSpot() {
  * @return {RegExp}
  */
 function getRegexForIPv4() {
-   throw new Error('Not implemented');
+   const num = '(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)';
+   return new RegExp(`^${num}.${num}.${num}.${num}$`);
 }
-
 
 /**
  * Returns the regexp that matches all SSN (Social Security Number) codes in
@@ -90,6 +90,7 @@ function getRegexForIPv4() {
  *                                   '0S4-H1-HACK'
  * @return {RegExp}
  */
+
 function getRegexForSSN() {
    throw new Error('Not implemented');
 }
