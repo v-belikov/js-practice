@@ -286,7 +286,8 @@ function isCreditCardNumber(ccn) {
         }
     }
     sum = (arrCnn.reduce((prev, curr)=> +prev+(+curr)))
-    return (sum % 10 === 0);
+
+    return sum % 10 === 0;
 }
 
 
@@ -305,7 +306,12 @@ function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 function getDigitalRoot(num) {
-    throw new Error('Not implemented');
+    num = String(num).split('').reduce((prev, curr) => +prev+ (+curr))
+    if(num > 9){
+        return getDigitalRoot(num);
+    }else{
+        return num;
+    }
 }
 
 
@@ -391,7 +397,7 @@ function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 function toNaryString(num, n) {
-    throw new Error('Not implemented');
+    return num.toString(n)
 }
 
 

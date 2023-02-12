@@ -65,7 +65,7 @@ function getPowerFunction(exponent) {
  *   getPolynom()      => null
  */
 function getPolynom() {
-    var args = Array.from(arguments).reverse();
+    const args = [...arguments].reverse();
     return (x) => {
         return args.reduce((prev, curr, index) => prev + curr * Math.pow(x, index), 0);
     };
@@ -87,10 +87,8 @@ function getPolynom() {
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
 function memoize(func) {
-    let store = null;
+    const store = func();
     return () => {
-        if (store == null)
-            store = func();
         return store;
     };
 }
@@ -112,7 +110,18 @@ function memoize(func) {
  * retryer() => 2
  */
 function retry(func, attempts) {
-    throw new Error('Not implemented');
+    return() => {
+        while(attempts >= 0){
+            attempts--;
+            try{
+                return func();
+            }catch(err){
+                if(attempts < 0){
+                    throw err;
+                }
+            }
+        }
+    }
 }
 
 
@@ -140,7 +149,15 @@ function retry(func, attempts) {
  *
  */
 function logger(func, logFunc) {
-    throw new Error('Not implemented');
+    //*
+    return (...args) => { // object
+        const argsString = JSON.stringify(args).slice(1,-1);
+        logFunc(`${func.name}(${argsString}) starts`);
+        const res = func(...args);
+        logFunc(`${func.name}(${argsString}) ends`);
+
+        return res;
+    }
 }
 
 
@@ -152,15 +169,26 @@ function logger(func, logFunc) {
  *
  * @example
  *   var fn = function(x1,x2,x3,x4) { return  x1 + x2 + x3 + x4; };
- *   partialUsingArguments(fn, 'a')('b','c','d') => 'abcd'
+ *   partialUsingArguments(fn, 'a')('b','c','d') => 'abcd' 
  *   partialUsingArguments(fn, 'a','b')('c','d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
-function partialUsingArguments(fn) {
-    throw new Error('Not implemented');
+function partialUsingArguments(fn, ...args) {
+    return fn.bind(this, ...args); 
 }
-
+// function partialUsingArguments(fn, ...args) {
+//      ? currying
+//     return function(x1) {
+//          return function(x2) {
+//              return function(x3) {
+//                  return function(x4) {
+//                      return fn(x1, x2, x3, x4);
+//                  };
+//              };
+//          };
+//      };
+// }
 
 /**
  * Returns the id generator function that returns next integer starting from specified number every time when invoking.
@@ -179,7 +207,10 @@ function partialUsingArguments(fn) {
  *   getId10() => 11
  */
 function getIdGeneratorFunction(startFrom) {
-    throw new Error('Not implemented');
+    return function(){
+        let count = startFrom++;
+        return count++;
+    }
 }
 
 
