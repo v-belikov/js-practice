@@ -29,10 +29,17 @@
  *
  */
 function getFizzBuzz(num) {
-  let count = (x) => !(num % x);
-  if (count(15)) return 'FizzBuzz';
-  if (count(5)) return 'Buzz';
-  if (count(3)) return 'Fizz';
+  const count = (x) => num % x === 0;
+  if (count(15)) {
+    return 'FizzBuzz';
+  }
+  if (count(5)) {
+    return 'Buzz';
+  }
+  if (count(3)) {
+    return 'Fizz';
+  }
+
   return num;
 }
 
@@ -49,9 +56,11 @@ function getFizzBuzz(num) {
  */
 function getFactorial(n) {
   let result = 1;
+
   for (let i = 1; i <= n; i++) {
     result = result * i;
   }
+
   return result;
 }
 
@@ -69,9 +78,11 @@ function getFactorial(n) {
  */
 function getSumBetweenNumbers(n1, n2) {
   let result = 0;
+
   for (let i = n1; i <= n2; i++) {
     result += i;
   }
+
   return result;
 }
 

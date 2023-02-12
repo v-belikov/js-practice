@@ -87,16 +87,7 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-  let result = b / a;
-  if (a <= 1 || b <= 1) {
-    if (result === 0) {
-      return 0;
-    } else {
-      return result * -1;
-    }
-  } else {
-    return result;
-  }
+  return (b === 0 ? b : -b) / a;
 }
 
 /**
@@ -117,8 +108,9 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  let firstPoint = Math.atan2(x1, y1);
-  let secondPoint = Math.atan2(x2, y2);
+  const firstPoint = Math.atan2(x1, y1);
+  const secondPoint = Math.atan2(x2, y2);
+
   return Math.abs(secondPoint - firstPoint);
 }
 
@@ -188,7 +180,8 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  let base = Math.pow(10, pow);
+  const base = Math.pow(10, pow);
+
   return Math.round(num / base) * base;
 }
 
@@ -210,7 +203,12 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  for (let i = 2; i < n; i++) if (n % i === 0) return false;
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+
   return n > 1;
 }
 

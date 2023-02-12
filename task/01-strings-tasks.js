@@ -35,7 +35,7 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-  return value.split('').length;
+  return value.length;
 }
 
 /**
@@ -80,7 +80,7 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-  return value.split('')[0];
+  return value[0];
 }
 
 /**
@@ -110,11 +110,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-  const result = [];
-  for (let i = 0; i < count; i++) {
-    result.push(value);
-  }
-  return result.join('');
+  return value.repeat(count);
 }
 
 /**
@@ -200,16 +196,14 @@ function extractEmails(str) {
  *
  */
 function getRectangleString(width, height) {
-  let lengthString = width - 2;
-  let heighthString = height - 2;
+  const lengthString = width - 2;
+  const heighthString = height - 2;
 
-  let firstString = '┌' + '─'.repeat(lengthString) + '┐\n';
-  let middleString = ('│' + ' '.repeat(lengthString) + '│\n').repeat(heighthString);
-  let endString = '└' + '─'.repeat(lengthString) + '┘\n';
+  const firstString = '┌' + '─'.repeat(lengthString) + '┐\n';
+  const middleString = ('│' + ' '.repeat(lengthString) + '│\n').repeat(heighthString);
+  const endString = '└' + '─'.repeat(lengthString) + '┘\n';
 
-  let result = `${firstString}${middleString}${endString}`;
-
-  return result;
+  return `${firstString}${middleString}${endString}`;
 }
 
 /**
@@ -231,10 +225,12 @@ function encodeToRot13(str) {
   const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
   const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
 
-  let LetterIndex = (x) => input.indexOf(x);
-  let translate = (x) => (LetterIndex(x) > -1 ? output[LetterIndex(x)] : x);
-  let result = str.split('').map(translate).join('');
-  return result;
+  const translate = (x) => {
+    const index = input.indexOf(x);
+    return index > -1 ? output[index] : x;
+  };
+
+  return str.split('').map(translate).join('');
 }
 
 /**
@@ -251,7 +247,7 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  return typeof value === 'string' ? true : value instanceof String ? true : false;
+  return typeof value === 'string' || value instanceof String;
 }
 
 /**

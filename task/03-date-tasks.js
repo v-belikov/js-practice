@@ -54,7 +54,8 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-  let year = date.getUTCFullYear();
+  const year = date.getUTCFullYear();
+
   return (year % 4 === 0 && year % 100 != 0) || year % 400 === 0;
 }
 
