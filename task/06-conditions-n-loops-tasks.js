@@ -30,12 +30,15 @@
  */
 function getFizzBuzz(num) {
   const count = (x) => num % x === 0;
+
   if (count(15)) {
     return 'FizzBuzz';
   }
+
   if (count(5)) {
     return 'Buzz';
   }
+  
   if (count(3)) {
     return 'Fizz';
   }
