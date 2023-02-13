@@ -22,7 +22,8 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 function parseDataFromRfc2822(value) {
-   return Date.parse(value)
+
+    return Date.parse(value);
 }
 
 /**
@@ -37,7 +38,8 @@ function parseDataFromRfc2822(value) {
  *    '2016-01-19T08:07:37Z' => Date()
  */
 function parseDataFromIso8601(value) {
-   return Date.parse(value)
+
+    return Date.parse(value);
 }
 
 
@@ -56,9 +58,12 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-    let newDate = new Date(date)
-    newDate.setMonth(1,29)
-   return newDate.getDate()===29
+
+    const newDate = new Date(date)
+
+    newDate.setMonth(1, 29)
+
+    return newDate.getDate() === 29;
 }
 
 
@@ -78,23 +83,25 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-    const format = (num, len = 2) =>  `${num}`.padStart(len, '0')
-    let difference = endDate-startDate;
-    let hh = Math.floor(difference/(1000*60*60))
-    difference-=hh*1000*60*60
-    let mm = Math.floor(difference/(1000*60))
-    difference-=mm*1000*60
-    let ss = Math.floor(difference/1000)
-    difference-=ss*1000
-    let ms=difference
-    return `${format(hh)}:${format(mm)}:${format(ss)}.${format(ms,3)}`
+
+    const format = (num, len = 2) => `${num}`.padStart(len, '0');
+    let difference = endDate - startDate;
+    const hh = Math.floor(difference / (1000 * 60 * 60));
+    difference -= hh * 1000 * 60 * 60;
+    const mm = Math.floor(difference / (1000 * 60));
+    difference -= mm * 1000 * 60;
+    const ss = Math.floor(difference / 1000);
+    difference -= ss * 1000;
+    const ms = difference;
+
+    return `${format(hh)}:${format(mm)}:${format(ss)}.${format(ms, 3)}`
 }
 
 
 /**
  * Returns the angle (in radians) between the hands of an analog clock for the specified Greenwich time.
  * If you have problem with solution please read: https://en.wikipedia.org/wiki/Clock_angle_problem
- * 
+ *
  * @param {date} date
  * @return {number}
  *
@@ -108,12 +115,14 @@ function timeSpanToString(startDate, endDate) {
  *    30 * 3.141592653589793238462643 / 180
  */
 function angleBetweenClockHands(date) {
+
+    const radians = deg => (deg * Math.PI) / 180
+
     const hours = date.getUTCHours() % 12;
     const mins = date.getUTCMinutes();
-    const radians = deg => (deg*Math.PI)/180
+    const ans = Math.abs(30 * hours + 0.5 * mins - 6 * mins)
 
-    let ans = Math.abs(30*hours + 0.5*mins-6*mins)
-    return radians(Math.min(360-ans,ans))
+    return radians(Math.min(360 - ans, ans));
 }
 
 
