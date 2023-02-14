@@ -33,7 +33,22 @@
  *
  */
 function* get99BottlesOfBeer() {
-    throw new Error('Not implemented');
+
+    for (let i = 99; i > 0; i--) {
+        yield `${i} bottles of beer on the wall, ${i} bottles of beer.`;
+
+        if (i === 2) {
+            break;
+        }
+
+        yield `Take one down and pass it around, ${i - 1} bottles of beer on the wall.`;
+    }
+
+    yield `Take one down and pass it around, 1 bottle of beer on the wall.`;
+    yield '1 bottle of beer on the wall, 1 bottle of beer.';
+    yield 'Take one down and pass it around, no more bottles of beer on the wall.';
+    yield 'No more bottles of beer on the wall, no more bottles of beer.';
+    yield 'Go to the store and buy some more, 99 bottles of beer on the wall.';
 }
 
 
@@ -47,7 +62,21 @@ function* get99BottlesOfBeer() {
  *
  */
 function* getFibonacciSequence() {
-    throw new Error('Not implemented');
+    let prevElemA = 0,
+        prevElemB = 1,
+        temp;
+
+    yield prevElemA;
+    yield prevElemB;
+
+    while (true) {
+        
+        temp = prevElemB;
+        prevElemB += prevElemA;
+        prevElemA = temp;
+
+        yield prevElemB;
+    }
 }
 
 
@@ -131,9 +160,9 @@ function* mergeSortedSequences(source1, source2) {
 
 /**
  * Resolve Promises and take values step by step.
- * 
+ *
  * @params {Iterable.<Promise>} generator
- * @return {Promise} Promise with value returned via return 
+ * @return {Promise} Promise with value returned via return
  *
  * @example
  *   async((function*() {
@@ -155,5 +184,5 @@ module.exports = {
     depthTraversalTree: depthTraversalTree,
     breadthTraversalTree: breadthTraversalTree,
     mergeSortedSequences: mergeSortedSequences,
-    async               : async
+    async: async
 };
