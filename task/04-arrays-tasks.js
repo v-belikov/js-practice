@@ -25,7 +25,6 @@ const {type} = require("mocha/lib/utils");
  *    [0, 1, 2, 3, 4, 5], 5    => 5
  */
 function findElement(arr, value) {
-
     return arr.indexOf(value);
 }
 
@@ -41,7 +40,6 @@ function findElement(arr, value) {
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
 function generateOdds(len) {
-
     return Array.from({length: len}, (_, i) => i * 2 + 1);
 }
 
@@ -74,7 +72,6 @@ function doubleArray(arr) {
  *    [] => []
  */
 function getArrayOfPositives(arr) {
-
     return arr.filter(elem => elem > 0);
 }
 
@@ -90,7 +87,6 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 function getArrayOfStrings(arr) {
-
     return arr.filter(elem => typeof elem === 'string');
 }
 
@@ -108,7 +104,6 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-
     return arr.filter(elem => !!elem);
 }
 
@@ -123,7 +118,6 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-
     return arr.map(elem => elem.toUpperCase());
 }
 
@@ -139,7 +133,6 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-
     return arr.map(elem => elem.length);
 }
 
@@ -155,7 +148,6 @@ function getStringsLength(arr) {
  *    [ 1, 'b', 'c'], 0, 'x'  => [ 'x', 1, 'b', 'c' ]
  */
 function insertItem(arr, item, index) {
-
     return arr.splice(index, 0, item);
 }
 
@@ -170,7 +162,6 @@ function insertItem(arr, item, index) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'a', 'b', 'c' ]
  */
 function getHead(arr, n) {
-
     return arr.slice(0, n);
 }
 
@@ -186,7 +177,6 @@ function getHead(arr, n) {
  *    [ 'a', 'b', 'c', 'd'], 3  => [ 'b', 'c', 'd' ]
  */
 function getTail(arr, n) {
-
     return arr.slice(-n);
 }
 
@@ -212,7 +202,6 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-
     return arr.map(elem => elem.join(',')).join('\n');
 }
 
@@ -228,7 +217,6 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-
     return arr.map(elem => elem ** 2);
 }
 
@@ -267,7 +255,6 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-
     return arr.filter((_, index) => (index + 1) % 2 === 0);
 }
 
@@ -308,7 +295,6 @@ function propagateItemsByPositionIndex(arr) {
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
 function get3TopItems(arr) {
-
     return arr.sort((a, b) => b - a).slice(0, 3);
 }
 
@@ -327,7 +313,6 @@ function get3TopItems(arr) {
  *   [ 1, '2' ] => 1
  */
 function getPositivesCount(arr) {
-
     return arr.filter(elem => elem > 0 && typeof elem === 'number').length;
 }
 
@@ -365,7 +350,6 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-
     return arr.reduce((acc, curr) => acc + curr, 0);
 }
 
@@ -382,7 +366,6 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-
     return arr.filter(elem => !!elem === false).length;
 }
 
@@ -401,7 +384,6 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-
     return arr.filter(elem => elem === item).length;
 }
 
@@ -417,7 +399,6 @@ function findAllOccurences(arr, item) {
  *    ['rock', 'paper', 'scissors']     => 'rock,paper,scissors'
  */
 function toStringList(arr) {
-
     return arr.join(',');
 }
 
@@ -497,7 +478,6 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-
     return Array.from({length: end - start + 1}, (_, index) => start + index);
 }
 
@@ -513,7 +493,6 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-
     return [...new Set(arr)];
 }
 
@@ -612,6 +591,7 @@ function getElementByIndexes(arr, indexes) {
  */
 function swapHeadAndTail(arr) {
     const mid = arr.length / 2
+
     return [...arr.slice(-mid), ...arr.slice(mid, -mid), ...arr.slice(0, mid)]
 }
 

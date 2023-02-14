@@ -21,7 +21,6 @@
  *   '',  'bb'  => 'bb'
  */
 function concatenateStrings(value1, value2) {
-
     return value1 + value2;
 }
 
@@ -38,7 +37,6 @@ function concatenateStrings(value1, value2) {
  *   ''      => 0
  */
 function getStringLength(value) {
-
     return value.length;
 }
 
@@ -56,7 +54,6 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-
     return `Hello, ${firstName} ${lastName}!`;
 }
 
@@ -71,7 +68,6 @@ function getStringFromTemplate(firstName, lastName) {
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
 function extractNameFromTemplate(value) {
-
     return value.replace(/^Hello, (.*?)!/g,'$1');
 }
 
@@ -87,7 +83,6 @@ function extractNameFromTemplate(value) {
  *   'cat'       => 'c'
  */
 function getFirstChar(value) {
-
     return value[0];
 }
 
@@ -103,7 +98,6 @@ function getFirstChar(value) {
  *   '\tHello, World! ' => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-
     return value.trim();
 }
 
@@ -119,7 +113,6 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   'cat', 3 => 'catcatcat'
  */
 function repeatString(value, count) {
-
     return value.repeat(+count);
 }
 
@@ -136,7 +129,6 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value) {
-
     return str.replace(value,'');
 }
 
@@ -152,7 +144,6 @@ function removeFirstOccurrences(str, value) {
  *   '<a>' => 'a'
  */
 function unbracketTag(str) {
-
     return str.slice(1,-1);
 }
 
@@ -254,7 +245,6 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-
     return typeof value === 'string' || value instanceof String;
 }
 

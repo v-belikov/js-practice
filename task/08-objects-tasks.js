@@ -28,7 +28,6 @@ function Rectangle(width, height) {
     this.height = height;
 
     this.__proto__.getArea = function () {
-
         return width * height;
     };
 }
@@ -45,7 +44,6 @@ function Rectangle(width, height) {
  *    { width: 10, height : 20 } => '{"height":10,"width":20}'
  */
 function getJSON(obj) {
-
     return JSON.stringify(obj);
 }
 

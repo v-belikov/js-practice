@@ -103,7 +103,6 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a, b, c) {
-
     return a + b > c && b + c > a && a + c > b;
 }
 
@@ -147,9 +146,9 @@ function doRectanglesOverlap(rect1, rect2) {
     rect2.right = rect2.left + rect2.width
 
     return rect1.top < rect2.bottom &&
-           rect1.bottom > rect2.top &&
-           rect1.left < rect2.right &&
-           rect1.right > rect2.left;
+        rect1.bottom > rect2.top &&
+        rect1.left < rect2.right &&
+        rect1.right > rect2.left;
     // return (rect2.top - rect1.top < rect1.width) && (rect2.left - rect1.left) < rect1.height;
 }
 
@@ -207,7 +206,9 @@ function findFirstSingleChar(str) {
     }
 
     for (let elem in chars) {
-        if (chars[elem] === 1) return elem
+        if (chars[elem] === 1) {
+            return elem
+        }
     }
 
     return null;
@@ -236,7 +237,6 @@ function findFirstSingleChar(str) {
  *
  */
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-
     return `${isStartIncluded ? '[' : '('}${a > b ? b : a}, ${a > b ? a : b}${isEndIncluded ? ']' : ')'}`;
 }
 
@@ -254,7 +254,6 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-
     return Array.from(str).reverse().join('');
 }
 
@@ -272,7 +271,6 @@ function reverseString(str) {
  *   34143 => 34143
  */
 function reverseInteger(num) {
-
     return +(Array.from('' + num).reverse().join(''));
 }
 
@@ -337,12 +335,12 @@ function getDigitalRoot(num) {
 
     if (array.length === 1) {
         return +array.join('')
-    } else {
-
-        let number = array.reduce((acc, curr) => acc + curr, 0)
-
-        return getDigitalRoot(number);
     }
+
+    let number = array.reduce((acc, curr) => acc + curr, 0)
+
+    return getDigitalRoot(number);
+
 }
 
 
@@ -382,7 +380,9 @@ function isBracketsBalanced(str) {
             stack.push(elem);
         } else if (stack[stack.length - 1] === bracketsConfig[elem]) {
             stack.pop();
-        } else return false;
+        } else {
+            return false;
+        }
     }
 
     return stack.length === 0;

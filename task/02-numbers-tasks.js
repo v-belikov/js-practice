@@ -22,7 +22,6 @@
  *   5, 5  => 25
  */
 function getRectangleArea(width, height) {
-
     return width * height;
 }
 
@@ -39,7 +38,6 @@ function getRectangleArea(width, height) {
  *   0    => 0
  */
 function getCicleCircumference(radius) {
-
     return 2 * Math.PI * radius;
 }
 
@@ -56,7 +54,6 @@ function getCicleCircumference(radius) {
  *  -3, 3  => 0
  */
 function getAverage(value1, value2) {
-
     return value1 / 2 + value2 / 2;
 }
 
@@ -76,7 +73,6 @@ function getAverage(value1, value2) {
  *   (-5,0) (10,-10) => 18.027756377319946
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
-
     return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 }
 
@@ -93,7 +89,6 @@ function getDistanceBetweenPoints(x1, y1, x2, y2) {
  *   5*x = 0         => 0
  */
 function getLinearEquationRoot(a, b) {
-
     return (b === 0 ? b : -b) / a;
 }
 
@@ -116,7 +111,6 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-
     return Math.acos((x1 * x2 + y1 * y2) / (Math.sqrt(x1 ** 2 + y1 ** 2)) * (Math.sqrt(x2 ** 2 + y2 ** 2)));
 }
 
@@ -133,7 +127,6 @@ function getAngleBetweenVectors(x1, y1, x2, y2) {
  *     0     => 0
  */
 function getLastDigit(value) {
-
     return Array.from('' + value).map(Number).pop();
 }
 
@@ -150,7 +143,6 @@ function getLastDigit(value) {
  * '-525.5'     => -525.5
  */
 function parseNumberFromString(value) {
-
     return +value;
 }
 
@@ -168,7 +160,6 @@ function parseNumberFromString(value) {
  *   1,2,3   => 3.741657386773941
  */
 function getParallelipidedDiagonal(a, b, c) {
-
     return Math.sqrt(a ** 2 + b ** 2 + c ** 2);
 }
 
